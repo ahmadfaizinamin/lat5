@@ -16,10 +16,10 @@ class ProductResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'name' => $this->name,
+            'name' => $this['name'],
             'category' => data_get($this, 'category.name'),
-            'price' => Number::currency($this->price, in: 'IDR', locale: 'id'),
-            'stock' => $this->stock
+            'price' => Number::currency($this['price'], in: 'IDR', locale: 'id'),
+            'stock' => $this['stock']
         ];
     }
 }
