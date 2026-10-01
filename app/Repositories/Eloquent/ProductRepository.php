@@ -14,7 +14,7 @@ class ProductRepository implements ProductRepositoryInterface
     }
     
     #[Override]
-    public function getById($id)
+    public function getById(string $id)
     {
         return Product::findOrFail($id);
     }
@@ -26,7 +26,7 @@ class ProductRepository implements ProductRepositoryInterface
     }
 
     #[Override]
-    public function update($id, array $data)
+    public function update(string $id, array $data)
     {
         $product = $this->getById($id);
         $product->update($data);
@@ -35,7 +35,7 @@ class ProductRepository implements ProductRepositoryInterface
     }
 
     #[Override]
-    public function delete($id)
+    public function delete(string $id)
     {
         $product = $this->getById($id);
         return $product->delete();

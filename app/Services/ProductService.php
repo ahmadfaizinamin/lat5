@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class ProductService
 {
-    protected $productRepo;
+    protected ProductRepositoryInterface $productRepo;
 
     public function __construct(ProductRepositoryInterface $productRepo)
     {
@@ -24,7 +24,7 @@ class ProductService
         });
     }
 
-    public function getByIdProduct($id)
+    public function getByIdProduct(string $id)
     {
         return Cache::remember("product_{$id}", 60, function () use ($id) {
             Log::info('[CACHE] mengambil data dari DB');
@@ -41,7 +41,7 @@ class ProductService
         return $this->productRepo->create($data);
     }
 
-    public function updateProduct($id, array $data)
+    public function updateProduct(string $id, array $data)
     {
         Cache::forget('products_all');
         Cache::forget("product_{$id}");
@@ -50,7 +50,7 @@ class ProductService
         return $this->productRepo->update($id, $data);
     }
 
-    public function deleteProduct($id)
+    public function deleteProduct(string $id)
     {
         Cache::forget('products_all');
         Cache::forget("product_{$id}");

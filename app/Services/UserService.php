@@ -9,7 +9,7 @@ use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 class UserService
 {
     protected $auth;
-    protected $userRepo;
+    protected UserRepositoryInterfaces $userRepo;
 
     public function __construct(UserRepositoryInterfaces $userRepo)
     {

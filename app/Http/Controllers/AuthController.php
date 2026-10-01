@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    protected $userService;
+    protected UserService $userService;
 
     public function __construct(UserService $userService)
     {

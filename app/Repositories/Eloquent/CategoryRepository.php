@@ -14,7 +14,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
     
     #[Override]
-    public function getById($id)
+    public function getById(string $id)
     {
         return Category::findOrFail($id);
     }
@@ -26,7 +26,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     #[Override]
-    public function update($id, array $data)
+    public function update(string $id, array $data)
     {
         $category = $this->getById($id);
         $category->update($data);
@@ -35,7 +35,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     #[Override]
-    public function delete($id)
+    public function delete(string $id)
     {
         $category = $this->getById($id);
         return $category->delete();
