@@ -5,7 +5,7 @@ use App\Repositories\Contracts\CategoryRepositoryInterface;
 
 class CategoryService
 {
-    protected $categoryRepo;
+    protected CategoryRepositoryInterface $categoryRepo;
 
     public function __construct(CategoryRepositoryInterface $categoryRepo)
     {
